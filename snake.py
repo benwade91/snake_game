@@ -26,3 +26,19 @@ class Snake:
             new_y = self.body[section_num - 1].ycor()
             self.body[section_num].setpos(new_x, new_y)
         self.body[0].forward(20)
+
+    def up(self):
+        if not self.body[0].heading() == 270:
+            self.body[0].setheading(90)
+
+    def down(self):
+        if not self.body[0].heading() == 90:
+            self.body[0].setheading(270)
+
+    def left(self):
+        if not self.body[0].heading() == 0:
+            self.body[0].setheading(180)
+
+    def right(self):
+        if not self.body[0].heading() == 180:
+            self.body[0].setheading(0)
