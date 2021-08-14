@@ -17,7 +17,6 @@ class Snake:
         self.body
         new_section = Turtle('square')
         new_section.penup()
-        new_section.color('white')
         self.body.append(new_section)
 
     def move(self):
@@ -25,6 +24,7 @@ class Snake:
             new_x = self.body[section_num - 1].xcor()
             new_y = self.body[section_num - 1].ycor()
             self.body[section_num].setpos(new_x, new_y)
+            self.body[section_num].color('white')
         self.body[0].forward(20)
 
     def up(self):
