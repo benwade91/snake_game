@@ -1,7 +1,7 @@
 from turtle import Screen
 from snake import Snake
 from food import Food
-from scoreboard import Scoreboard
+from scoreboard import Scoreboard, Gameover
 import time
 
 screen = Screen()
@@ -29,11 +29,16 @@ while game_on:
 
     snake.move()
 
+    # detect apple consumption
     if snake.body[0].distance(food) < 10:
         snake.add_segment()
         food.refresh()
         scoreboard.add_point()
 
+    # detect wall collision
+    if snake.body[0].xcor() > 280 or snake.body[0].xcor() < -280 or snake.body[0].ycor() > 280 or snake.body[0].ycor() < -280:
+        game_on = False
+        game_over = Gameover()
 
 
 
