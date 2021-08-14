@@ -27,6 +27,9 @@ while game_on:
 
     snake.move()
 
+    if snake.body[0].distance(food) < 10:
+        snake.add_segment()
+        food.refresh()
 
 
 
