@@ -12,6 +12,7 @@ class Snake:
             new_section.color('white')
             new_section.setpos((i * -20), 0)
             self.body.append(new_section)
+        self.body[0].shape('triangle')
 
     def add_segment(self):
         self.body

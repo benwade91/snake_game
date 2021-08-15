@@ -36,10 +36,16 @@ while game_on:
         scoreboard.add_point()
 
     # detect wall collision
-    if snake.body[0].xcor() > 280 or snake.body[0].xcor() < -280 or snake.body[0].ycor() > 280 or snake.body[0].ycor() < -280:
+    if snake.body[0].xcor() > 290 or snake.body[0].xcor() < -290 or snake.body[0].ycor() > 290 or snake.body[0].ycor() < -290:
         game_on = False
         game_over = Gameover()
+        print('wall')
 
-
+    # detect collision with snake body
+    for segment in snake.body[1:]:
+        if snake.body[0].distance(segment) < 10:
+            game_on = False
+            game_over = Gameover()
+            print('body')
 
 screen.exitonclick()
