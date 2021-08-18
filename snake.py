@@ -28,6 +28,13 @@ class Snake:
             self.body[section_num].color('white')
         self.body[0].forward(20)
 
+    def reset(self):
+        for body in self.body:
+            body.goto(400, 400)
+        self.body.clear()
+        self.create_snake()
+
+
     def up(self):
         if not self.body[0].heading() == 270:
             self.body[0].setheading(90)
